@@ -4,25 +4,21 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class B3502 {
+public class B2920 {
 
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		boolean[] arr = new boolean[41];
-		
-		for(int i = 0; i < 10 ; i++) {
+
+		if (br.readLine().equals("1 2 3 4 5 6 7 8")) {
 			
-			arr[Integer.parseInt(br.readLine())  % 42] = true;
-		}
-		int count = 0;
-		for(boolean b : arr) {
+			System.out.println("ascending");
+		} else if (br.readLine().equals("8 7 6 5 4 3 2 1")) {
 			
-			if(b) {
-				count++;
-			}
+			System.out.println("descending");
+		} else {
+			System.out.println("mixed");
 		}
-		System.out.println(count);
 	}
 
 }
