@@ -3,6 +3,7 @@ package baekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class B4344 {
@@ -35,7 +36,7 @@ public class B4344 {
 			sb.append(String.format("%.3f",answer)+"%");
 			sb.append("\n");
 			
-			
+		
 		}
 		System.out.println(sb.toString());
 	}
