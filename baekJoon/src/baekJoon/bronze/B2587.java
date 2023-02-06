@@ -15,6 +15,7 @@ public class B2587 {
 		for(int i = 0 ; i < 5 ; i++) {
 			int num = Integer.parseInt(br.readLine());
 			average += num;
+			//불필요...왜냐면 5/2하면 되니까...
 			if(i == 2) {
 				medium = num;
 			}
