@@ -71,7 +71,39 @@ public class B2750 {
 		//Arrays.sort(arr);
 		
 		// 3-2. 오름차순 정렬 [방법2] 선택 정렬
-		selectSort(arr);
+		//selectSort(arr);
+		
+		// 3-3. 오름차순 정렬 [방법3] 삽입 정렬
+		
+		// (1) 2번째 위치 ~ n번째 위치일 때, 앞 원소들과 비교해서 올바른 위치에 넣는다.
+		// 2번째 위치일 때는 1번 비교
+		// n번째 위치일 때는 (n-1)번 비교겠지...
+		for(int i = 1; i < arr.length ; i++ ) {
+			
+			
+			System.out.println("-----------------");
+			System.out.println(i+"번째 위치일 때");
+			
+			//i가 내려가면서 j(점점 앞 원소로 감)과 비교해야 되기 때문에... 임시변수 설정해줌
+			int temp_i = i;
+			//(2) 앞 원소들 돌아가면서 비교해야 하니까 0부터 시작해서 i보다 하나 앞까지 돌아가면서 비교...
+			for(int j = i-1 ; j >=  0 ; j--) {
+				System.out.println(j+"번째 원소와 비교할 거예요. 그 값은 " + arr[j] + "입니다.");
+				//(3) 앞 원소의 값이 뒤 원소의 값보다 크면, 뒤 원소의 값을 삽입하고, 앞 원소의 값은 하나 뒤로 보낸다.
+				if(arr[j] > arr[temp_i]) {
+					
+					int temp = arr[temp_i];
+					arr[j+1] = arr[j];
+					arr[temp_i-1] = temp;
+					System.out.println(temp);
+					System.out.println(arr[temp_i-1]);
+					temp_i--;
+					
+				}
+				System.out.println(Arrays.toString(arr));
+				
+			}
+		}
 		
 		
 		
