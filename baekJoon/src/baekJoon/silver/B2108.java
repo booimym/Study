@@ -28,7 +28,7 @@ public class B2108 {
 		for(int i = 0 ; i < arr.length ; i++) {
 			
 			
-			map.push(arr[i],1);
+			//map.push(arr[i],1);
 		}
 		
 		

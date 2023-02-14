@@ -1,8 +1,10 @@
 package baekJoon.silver;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
 public class B2751 {
@@ -10,7 +12,7 @@ public class B2751 {
 	static void divide(int[] arr, int start, int end , int[] copyArr) {
 		
 		if(start == end) {
-			System.out.println("[원소가 하나니.. 라턴]");
+			System.out.println("[원소가 하나니.. 리턴] = 인덱스 ["+start+"]의 원소는 : " +arr[start]);
 			return;
 		}
 		
@@ -25,8 +27,75 @@ public class B2751 {
 		merge(arr,start,mid,end,copyArr);
 		
 	}
-	
 	static void merge(int[] arr, int start, int mid, int end, int[] copyArr) {
+		System.out.print("left배열 : ");
+		for(int i = start; i <= mid ; i++) {
+			System.out.print(arr[i]);
+			if(i != mid) {
+				System.out.print(",");
+			}else {
+				System.out.println();
+			}
+		}
+		System.out.print("right배열 : ");
+		for(int i = mid+1; i <= end ; i++) {
+			System.out.print(arr[i]);
+			if(i != end) {
+				System.out.print(",");
+			}else {
+				System.out.println();
+			}
+		}
+		//System.out.println(Arrays.toString(arr));
+		int left = start;
+		int right = mid+1;
+		int index = start;
+		
+		while (left <= mid && right <= end) {
+			
+			if(arr[left]>arr[right]) {
+				
+				copyArr[index] = arr[right];
+				right++;
+				index++;
+				System.out.println();
+			}else {
+				copyArr[index] = arr[left];
+				left++;
+				index++;
+			}
+			
+			System.out.print("중간 점검 + copyArr배열 : ");
+			System.out.println(Arrays.toString(copyArr));
+		}
+		
+		if(left <= mid ) {
+			System.out.println("오른쪽이 먼저 다 찼을 경우");
+			for(int i = left ; i <= mid; i++) {
+				copyArr[index] = arr[i];
+				index++;
+			}
+			System.out.println(Arrays.toString(copyArr));
+		}
+		
+		if(right <= end ) {
+			System.out.println("왼쪽이 먼저 다 찼을 경우");
+			for(int i = right ; i <= end; i++) {
+				copyArr[index] = arr[i];
+				index++;
+			}
+			System.out.println(Arrays.toString(copyArr));
+		}
+		
+		//arr에 정렬된만큼 넣어줘야 기존배열 + 기존배열 합병할 때 순서대로 정렬 가능
+		for(int i = start; i <= end ; i++) {
+			arr[i] = copyArr[i];
+		}
+		
+		
+	}
+	
+	static void mergeTry_fail(int[] arr, int start, int mid, int end, int[] copyArr) {
 		System.out.println("-----이제 합병들어갑니다.-----");
 		int arr1start = start;
 		int arr1end = mid;
@@ -145,7 +214,7 @@ public class B2751 {
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		// 정렬되기 전 배열 만들기
 		int arrLength = Integer.parseInt(br.readLine());
 		int[] arr = new int[arrLength];
@@ -156,7 +225,11 @@ public class B2751 {
 		//-----------------------------------------------------------------------//
 		
 		divide(arr,0,arrLength-1,copyArr);
-		
+		System.out.println("답");
+		for(int i = 0 ; i < arr.length ; i++) {
+			bw.write(arr[i]+"\n");
+		}
+		 bw.close();
 	}
 
 }
