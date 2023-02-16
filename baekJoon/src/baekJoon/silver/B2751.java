@@ -28,24 +28,24 @@ public class B2751 {
 		
 	}
 	static void merge(int[] arr, int start, int mid, int end, int[] copyArr) {
-		System.out.print("left배열 : ");
-		for(int i = start; i <= mid ; i++) {
-			System.out.print(arr[i]);
-			if(i != mid) {
-				System.out.print(",");
-			}else {
-				System.out.println();
-			}
-		}
-		System.out.print("right배열 : ");
-		for(int i = mid+1; i <= end ; i++) {
-			System.out.print(arr[i]);
-			if(i != end) {
-				System.out.print(",");
-			}else {
-				System.out.println();
-			}
-		}
+//		System.out.print("left배열 : ");
+//		for(int i = start; i <= mid ; i++) {
+//			System.out.print(arr[i]);
+//			if(i != mid) {
+//				System.out.print(",");
+//			}else {
+//				System.out.println();
+//			}
+//		}
+//		System.out.print("right배열 : ");
+//		for(int i = mid+1; i <= end ; i++) {
+//			System.out.print(arr[i]);
+//			if(i != end) {
+//				System.out.print(",");
+//			}else {
+//				System.out.println();
+//			}
+//		}
 		//System.out.println(Arrays.toString(arr));
 		int left = start;
 		int right = mid+1;
