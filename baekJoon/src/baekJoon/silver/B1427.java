@@ -8,21 +8,24 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
 public class B1427 {
-	static void divide(int[] arr, int start, int end , int[] copyArr) {
+	
+	static int[] copyArr;
+	
+	static void divide(int[] arr, int start, int end ) {
 			
 			if(start == end) {
 				return;
 			}
 			
 			int mid = (start + end)/2;
-			divide(arr,start,mid,copyArr);
-			divide(arr,mid+1,end,copyArr);
+			divide(arr,start,mid);
+			divide(arr,mid+1,end);
 			
-			merge(arr,start,mid,end,copyArr);
+			merge(arr,start,mid,end);
 			
 		}
 	
-	static void merge(int[] arr, int start, int mid, int end, int[] copyArr) {
+	static void merge(int[] arr, int start, int mid, int end) {
 
 		int left = start;
 		int right = mid+1;
@@ -88,11 +91,11 @@ public class B1427 {
 			
 		}
 		
-		int[] copyArr = new int[arr.length]; 
+		copyArr = new int[arr.length]; 
 		
 		//-----------------------------------------------------------------------//
 		
-		divide(arr,0,arr.length-1,copyArr);
+		divide(arr,0,arr.length-1);
 		
 		for(int i = 0 ; i < arr.length ; i++) {
 			bw.write(String.valueOf(arr[i]));
