@@ -5,19 +5,23 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-public class B1181 {
-	
+public class B1181_3 {
+
 	static String[] stringArr;
-	static int[] copyArr;
+	static String[] copyArr;
+	static void divide(String[] arr) {
+		copyArr = new String[arr.length];
+		divide(arr, 0, arr.length - 1);
+		copyArr = null;
+	}
 	
-	static void divide(int[] arr, int start, int end ) {
-		System.out.println("분할");
+	
+	static void divide(String[] arr, int start, int end ) {
+		//System.out.println("분할");
 			
 			if(start == end) {
 				return;
@@ -31,8 +35,8 @@ public class B1181 {
 			
 		}
 	
-	static void merge(int[] arr, int start, int mid, int end) {
-		System.out.println("합병");
+	static void merge(String[] arr, int start, int mid, int end) {
+		//System.out.println("합병");
 		int left = start;
 		int right = mid+1;
 		int index = start;
@@ -40,7 +44,7 @@ public class B1181 {
 		while (left <= mid && right <= end) {
 			
 			//오름차순일 경우
-			if(arr[left] > arr[right]) {
+			if(arr[left].length() > arr[right].length()) {
 			//내림차순일 경우
 			//if(arr[left]<arr[right]) {
 				
@@ -48,44 +52,43 @@ public class B1181 {
 				right++;
 				index++;
 				//System.out.println();
-			}else if(arr[left] < arr[right]) {
+			}else if(arr[left].length() < arr[right].length()) {
 				copyArr[index] = arr[left];
 				left++;
 				index++;
 				
 			//같을 경우!!
 			}else {
-				System.out.println("같을 경우");
-				System.out.println(stringArr[left]);
-				System.out.println(stringArr[right]);
+				//System.out.println("같을 경우");
+				//System.out.println(stringArr[left]);
+				//System.out.println(stringArr[right]);
 				//arr[left] = arr[right]일 경우....
 				char[] leftCharArr = stringArr[left].toCharArray();
 				char[] rightCharArr = stringArr[right].toCharArray();
 				
 				//각각의 char를 int로 변환한 다음 비교하기?
 				for(int i = 0 ; i < leftCharArr.length ; i++) {
-					System.out.println(i);
+					//System.out.println(i);
 					//만약에 left가 더 크다면...
 					if(leftCharArr[i] - '0' > rightCharArr[i] - '0') {
 						copyArr[index] = arr[right];
 						right++;
 						index++;
+						break;
 					} else if(leftCharArr[i] - '0' < rightCharArr[i] - '0') {
 						copyArr[index] = arr[left];
 						left++;
 						index++;
+						break;
 					} else {
 						//여기서 left든 right든 올라가지 않기 때문에
 						//무한반복에 걸리는 거였음...
 						
-						System.out.println("이거따문임?");
+						//System.out.println("이거따문임?");
 						continue;
 					}
 					
-					if(i>=leftCharArr.length) {
-						System.out.println("bye...");
-						break;
-					}
+					
 				}
 				
 				
@@ -143,19 +146,25 @@ public class B1181 {
 		//set을 배열로 변환
 		stringArr = stringSet.toArray(new String[0]);
 		
-		int[] intArr = new int[stringArr.length];
-		for(int i = 0 ; i < intArr.length; i++) {
-			intArr[i] = stringArr[i].length();
-		}
-		System.out.println(Arrays.toString(stringArr));
-		System.out.println(Arrays.toString(intArr));
+		//Stream을 이용...
+		//stringArr = Arrays.stream(firstArr).distinct().toArray(String[]::new);
+		 
 		
-		divide(intArr,0,intArr.length-1);
+		copyArr = new String[stringArr.length];
+		
+//		int[] intArr = new int[stringArr.length];
+//		for(int i = 0 ; i < intArr.length; i++) {
+//			intArr[i] = stringArr[i].length();
+//		}
+		//System.out.println(Arrays.toString(stringArr));
+		//System.out.println(Arrays.toString(intArr));
+		
+		divide(stringArr,0,stringArr.length-1);
 		
 		//-----------------------------------------------------------------------//
 		
-		for(int i = 0 ; i < intArr.length ; i++) {
-			bw.write(stringArr[i]);
+		for(int i = 0 ; i < stringArr.length ; i++) {
+			bw.write(stringArr[i]+"\n");
 		}
 		 bw.close();
 	}
