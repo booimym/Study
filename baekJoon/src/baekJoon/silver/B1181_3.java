@@ -134,22 +134,75 @@ public class B1181_3 {
 		int index = Integer.parseInt(br.readLine());
 		
 		String[] firstArr = new String[index];
-		
+		int count = 0;
 		for(int i = 0 ; i < index ; i++) {
 			
 			firstArr[i] = br.readLine();
+			//System.out.println(i+"번째 for문이 돌아갑니당...");
+			//----------------------------------------------------
+			if(i == 0) {
+			} else {
+				//기존것들과 비교?
+				for(int j = 0 ; j < i ; j++ ) {
+					//System.out.println("현재 " +firstArr[j]+"와"+firstArr[i]+"를 비교");
+					//기존것과 같다면, 
+					if(firstArr[j].equals(firstArr[i])) {
+						//System.out.println("같을 경우");
+						count++;
+						break;
+					} else {
+						//System.out.println("다를 경우");
+					}
+				}
+				//System.out.println(i+"의 for문 끝");
+			}
+			//System.out.println("gd");
+			//----------------------------------------------------
 		}
-		
-		//배열을 set으로 변환
-		Set<String> stringSet = new HashSet<>(Arrays.asList(firstArr));
-		
+//		System.out.println(count);
+//		System.out.println("문자열...");
+		//(1) 배열을 set으로 변환
+		//Set<String> stringSet = new HashSet<>(Arrays.asList(firstArr));
 		//set을 배열로 변환
-		stringArr = stringSet.toArray(new String[0]);
+		//stringArr = stringSet.toArray(new String[0]);
 		
-		//Stream을 이용...
+		//(2) Stream을 이용...
 		//stringArr = Arrays.stream(firstArr).distinct().toArray(String[]::new);
-		 
 		
+		//(3) for문을 이용해 중복없는 새로운 배열을 만들어보자!
+		stringArr = new String[index-count];
+		boolean flag = false;
+		int k = 0;
+		for(int i = 0 ; i < index ; i++) {
+			
+			if(i == 0) {
+				flag = true;
+			} else {
+				//기존것들과 비교?
+				for(int j = 0 ; j < i ; j++ ) {
+					//System.out.println("현재 " +firstArr[j]+"와"+firstArr[i]+"를 비교");
+					//기존것과 같다면, 
+					if(firstArr[j].equals(firstArr[i])) {
+						//System.out.println("같을 경우");
+						flag = false;
+						k--;
+						break;
+					} else {
+						//System.out.println("다를 경우");
+						//stringArr[i] = firstArr[i];
+						flag = true;
+					}
+				}
+				k++;
+			}
+			if(flag) {
+				//System.out.println("k는 " + k);
+				stringArr[k] = firstArr[i];
+				//System.out.println("stringArr 집어넣어진 값  :" + stringArr[k]);
+			}
+		}
+		 
+		//System.out.println(Arrays.toString(stringArr));
 		copyArr = new String[stringArr.length];
 		
 //		int[] intArr = new int[stringArr.length];
