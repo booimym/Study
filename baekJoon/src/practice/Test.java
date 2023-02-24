@@ -7,42 +7,36 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
+class Data3 {int x;}
+
+
 public class Test {
 
-	static String[] str;
 
 	public static void main(String[] args) throws Exception {
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-		//String[] str= new String[5];
-		
-//		str = br.readLine().split("");
-//		bw.write(Arrays.toString(str));
-//		bw.flush();
-//		
-//		//string[] str;
-//		str = br.readLine().split("");
-//		
-//		bw.write(Arrays.toString(str));
-//		bw.close();
-		
-		 int[] arr1 = new int[6];
-		 int[] arr2;
-		 boolean dp =true;
-		 
-		for (int i = 0; i < 6; i++) {
-			
-			if (dp) {
-				//arr2=arr1[i];
-				
-			}
-			
-		}
-		
-		
-		
+	Data3 d = new Data3();
+	d.x = 10;
+	
+	Data3 d2 = copy(d);
+	System.out.println("d.x = " + d.x);
+	System.out.println("d2.x = " + d2.x);
+	
 	}
 
+	static Data3 copy(Data3 d) {
+		
+		Data3 tmp = new Data3();
+		
+		tmp.x = d.x;
+		
+		Test.staticMethod();
+		
+		return tmp;
+	}
+	
+	static int staticMethod() {
+		
+		return 2;
+	}
 }

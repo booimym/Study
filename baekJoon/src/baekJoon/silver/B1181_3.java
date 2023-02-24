@@ -13,6 +13,7 @@ public class B1181_3 {
 
 	static String[] stringArr;
 	static String[] copyArr;
+	
 	static void divide(String[] arr) {
 		copyArr = new String[arr.length];
 		divide(arr, 0, arr.length - 1);
