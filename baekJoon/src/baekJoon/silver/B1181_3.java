@@ -5,20 +5,25 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 단어 정렬 문제 (최종 답안)
+ *
+ */
 public class B1181_3 {
 
 	static String[] stringArr;
 	static String[] copyArr;
 	
-	static void divide(String[] arr) {
-		copyArr = new String[arr.length];
-		divide(arr, 0, arr.length - 1);
-		copyArr = null;
-	}
+//	static void divide(String[] arr) {
+//		copyArr = new String[arr.length];
+//		divide(arr, 0, arr.length - 1);
+//		copyArr = null;
+//	}
 	
 	
 	static void divide(String[] arr, int start, int end ) {
@@ -64,36 +69,103 @@ public class B1181_3 {
 				//System.out.println(stringArr[left]);
 				//System.out.println(stringArr[right]);
 				//arr[left] = arr[right]일 경우....
-				char[] leftCharArr = stringArr[left].toCharArray();
-				char[] rightCharArr = stringArr[right].toCharArray();
+//				char[] leftCharArr = stringArr[left].toCharArray();
+//				char[] rightCharArr = stringArr[right].toCharArray();
+//				
+//				//각각의 char를 int로 변환한 다음 비교하기?
+//				for(int i = 0 ; i < leftCharArr.length ; i++) {
+//					//System.out.println(i);
+//					//만약에 left가 더 크다면...
+//					if(leftCharArr[i] - '0' > rightCharArr[i] - '0') {
+//						copyArr[index] = arr[right];
+//						right++;
+//						index++;
+//						break;
+//					} else if(leftCharArr[i] - '0' < rightCharArr[i] - '0') {
+//						copyArr[index] = arr[left];
+//						left++;
+//						index++;
+//						break;
+//					} else {
+//						//여기서 left든 right든 올라가지 않기 때문에
+//						//무한반복에 걸리는 거였음...
+//						
+//						//System.out.println("이거따문임?");
+//						continue;
+//					}
+//					
+//					
+//				}
 				
-				//각각의 char를 int로 변환한 다음 비교하기?
-				for(int i = 0 ; i < leftCharArr.length ; i++) {
-					//System.out.println(i);
-					//만약에 left가 더 크다면...
-					if(leftCharArr[i] - '0' > rightCharArr[i] - '0') {
-						copyArr[index] = arr[right];
-						right++;
-						index++;
-						break;
-					} else if(leftCharArr[i] - '0' < rightCharArr[i] - '0') {
-						copyArr[index] = arr[left];
-						left++;
-						index++;
-						break;
-					} else {
-						//여기서 left든 right든 올라가지 않기 때문에
-						//무한반복에 걸리는 거였음...
-						
-						//System.out.println("이거따문임?");
-						continue;
-					}
-					
-					
+				//------------------------------------------------------------------------------------------------------
+//				String leftInt="";
+//				for (int i = 0; i < arr[left].length(); i++) {
+//					//leftInt += (int) arr[left].charAt(i);
+//					if(100>(int) arr[left].charAt(i)) {
+//						leftInt += "0"+(int) arr[left].charAt(i);
+//					}else {
+//						leftInt += (int) arr[left].charAt(i);
+//					}
+//					
+//				}
+//				String rightInt="";
+//				for (int i = 0; i < arr[right].length(); i++) {
+//					//rightInt += (int) arr[right].charAt(i);
+//					if(100>(int) arr[right].charAt(i)) {
+//						rightInt += "0"+(int) arr[right].charAt(i);
+//					}else {
+//						rightInt += (int) arr[right].charAt(i);
+//					}
+//					
+//				}
+				//Exception in thread "main" java.lang.NumberFormatException: For input string: "119111110116"
+				//long으로 바꾸니까 일단 예시 문제는 풀림
+				
+				//BigInteger bigIntegerLeft = new BigInteger(leftInt);
+				//BigInteger bigIntegerRight = new BigInteger(rightInt);
+//				System.out.println("leftInt는 "+arr[left]);
+//				System.out.println("leftInt는 "+leftInt);
+//				System.out.println("rightInt의 아스키 코드는 "+Long.parseLong(rightInt));
+//				System.out.println("rightInt의 아스키 코드는 "+Long.parseLong(rightInt));
+//				if(Long.parseLong(leftInt) > Long.parseLong(rightInt)) {
+//					copyArr[index] = arr[right];
+//					right++;
+//					index++;
+//				}else {
+//					copyArr[index] = arr[left];
+//					left++;
+//					index++;
+//				}
+				
+//				if(bigIntegerLeft.compareTo(bigIntegerRight)>0) {
+//					copyArr[index] = arr[right];
+//					right++;+
+//					index++;
+//				} else {
+//					copyArr[index] = arr[left];
+//					left++;
+//					index++;
+//				}
+				//------------------------------------------------------------------------------------------------------
+				int leftInt = 0;
+				for (int i = 0; i < arr[left].length(); i++) {
+					leftInt += arr[left].charAt(i);
+				}
+				int rightInt=0;
+				for (int i = 0; i < arr[right].length(); i++) {
+					rightInt += arr[right].charAt(i);
+				}
+				if(leftInt > rightInt) {
+					copyArr[index] = arr[right];
+					right++;
+					index++;
+				}else {
+					copyArr[index] = arr[left];
+					left++;
+					index++;
 				}
 				
-				
-				
+				//------------------------------------------------------------------------------------------------------
 			}
 			
 			//System.out.print("중간 점검 + copyArr배열 : ");
@@ -173,7 +245,8 @@ public class B1181_3 {
 		//(3) for문을 이용해 중복없는 새로운 배열을 만들어보자!
 		stringArr = new String[index-count];
 		boolean flag = false;
-		int k = 0;
+		//새로운 배열에 집어 넣을 때, 중복된 값은 집어넣지 않도록 하는 용도.
+		int k = 0; 
 		for(int i = 0 ; i < index ; i++) {
 			
 			if(i == 0) {
@@ -214,6 +287,11 @@ public class B1181_3 {
 		//System.out.println(Arrays.toString(intArr));
 		
 		divide(stringArr,0,stringArr.length-1);
+		
+		
+		
+		
+		
 		
 		//-----------------------------------------------------------------------//
 		

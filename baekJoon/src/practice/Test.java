@@ -12,31 +12,16 @@ class Data3 {int x;}
 
 public class Test {
 
-
-	public static void main(String[] args) throws Exception {
-
-	Data3 d = new Data3();
-	d.x = 10;
-	
-	Data3 d2 = copy(d);
-	System.out.println("d.x = " + d.x);
-	System.out.println("d2.x = " + d2.x);
-	
-	}
-
-	static Data3 copy(Data3 d) {
-		
-		Data3 tmp = new Data3();
-		
-		tmp.x = d.x;
-		
-		Test.staticMethod();
-		
-		return tmp;
+	public static int solution(String[] bakery_schedule, String current_time, int k) {
+		int answer = -2;  
+		return answer;
 	}
 	
-	static int staticMethod() {
-		
-		return 2;
+	public static void main(String[] args) {
+	      int result = solution(new String[]{"09:05 10","12:20 5","13:25 5","14:24 5"},"12:05",10);
+	      System.out.println(result);
+	      
 	}
+
+	
 }

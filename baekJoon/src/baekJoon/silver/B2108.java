@@ -13,29 +13,31 @@ public class B2108 {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			
+		/*
+		 * 
+		 * [ 최빈값 구하기 ]
+		 * 
+		 * 
+		 * */
+		
+		
 		// 정렬되기 전 배열 만들기
+		// (1) 배열 길이
 		int arrLength = Integer.parseInt(br.readLine());
+		// (2) 배열 생성
 		int[] arr = new int[arrLength];
-		//int[] counting = new int[arrLength]; 
-		//System.out.println(Arrays.toString(counting));
+		// (3) 배열 초기화
 		for(int i = 0 ; i < arr.length ; i++) {
 			arr[i] = Integer.parseInt(br.readLine());
 		}
-		System.out.println(Arrays.toString(arr));
 		
-		Map<Integer, Integer> map = new HashMap<>();
-		
-		for(int i = 0 ; i < arr.length ; i++) {
-			
-			
-			//map.push(arr[i],1);
-		}
+		//---------------------------------------------------------------------
+		//입력되는 정수의 절댓값은 4,000을 넘지 않는다.
+		int[] counting = new int[8001];
 		
 		
 		
 		
-		System.out.println(Arrays.toString(arr));
-		//System.out.println(Arrays.toString(counting));
 	}
 
 }
