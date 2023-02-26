@@ -1,6 +1,6 @@
 package practice2;
 
-import practice.Test;
+import practice.Quiz1;
 
 public class AccessModifiersTest {
 
