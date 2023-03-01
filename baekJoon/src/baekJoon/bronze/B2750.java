@@ -209,10 +209,6 @@ public class B2750 {
 		return arr;
 	}
 	
-	static int[] myFist(int[] arr) {
-		return arr;
-	}
-	
 	//설명용이니까 return값 없어도 될 듯?
 	static void quickSortExplaination(int[] arr) {
 		//System.out.println("----------[정렬되기 전 기존 배열]----------");
@@ -230,8 +226,6 @@ public class B2750 {
 		System.out.println(beforeSB.toString());
 		System.out.println("--------------------------------------");
 	}
-	
-	
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -284,18 +278,6 @@ public class B2750 {
 		
 		myFirstQuickSort(arr , 0 , arr.length-1);
 	
-		
-		
-		// 3-6. 오름차순 정렬 [방법6] 병합 정렬
-		//myFirst
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		// 4. 정렬된 배열 원소들을 하나씩 꺼낸다.
 		for(int i = 0; i<number;i++) {
