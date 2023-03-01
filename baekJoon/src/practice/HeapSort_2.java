@@ -10,8 +10,8 @@ public class HeapSort_2 {
 
 	public static void heapSort() {
 		
-	    int size = 5;
-	    int[] heap = {5, 2, 3, 6, 1};
+	    int size = 6;
+	    int[] heap = {3,7,5,4,2,8};
 	    
 	    //1.  최초 힙 만들기
 	    for(int i = 1; i < heap.length; i++) {
