@@ -11,9 +11,9 @@ public class StringSort {
 		// 1 + 2 + ..(n-1)번 비교한다.
 		for(int i = 1 ; i < strings.length ; i++) {
 			
-			while(strings) {
-				
-			}
+//			while(strings) {
+//				
+//			}
 		}
 		
 		
