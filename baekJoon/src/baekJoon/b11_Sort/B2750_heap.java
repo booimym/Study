@@ -3,20 +3,31 @@ package baekJoon.b11_Sort;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class B2750_heap {
 	
 	
 	public static void sort(int[] arr, int arrLength) {
 		
+		if(arrLength < 2) {
+			return;
+		}
+		
 		//마지막 인덱스의 부모 노드 찾기
 		int parentNode = (arrLength-1)-1/2;
 		
+		//최대힙 만들기
+		for(int i = parentNode ; i >= 0; i--) {
+			//▲ 틀린 부분  : heapify(arr,parentNode,arrLength-1);			
+			heapify(arr,i,arrLength-1);			
+		}
 		
-		
-		heapify(arr,parentNode,arrLength-1);
-		
-		
+		for(int i = arr.length-1 ; i >= 1 ; i--) {
+			swap(arr, i,0);
+			//▲ 틀린 부분  : heapify(arr, i, arr.length - 1);
+			heapify(arr, 0, i - 1);
+		}
 		
 	}
 	
@@ -25,7 +36,6 @@ public class B2750_heap {
 		arr[a] = arr[b];
 		arr[b] = temp;
 	}
-	
 	
 	/**
 	 * 최대힙 만드는 메소드
@@ -43,11 +53,11 @@ public class B2750_heap {
 			largestIdx = rightChildIdx;
 		}
 		
+		//★ if문 넣어주기!
 		if(largestIdx != parentNode) {
 			swap(arr,largestIdx,parentNode);
 			heapify(arr,largestIdx,lastIdx);
 		}
-		
 		
 	}
 	
@@ -66,6 +76,11 @@ public class B2750_heap {
 		
 		//정렬되기 전 배열! arr임
 		sort(arr,arrLength);
+		
+		//출력
+		for(int i = 0; i<arrLength;i++) {
+			System.out.println(arr[i]);
+		}
 			
 	}
 
