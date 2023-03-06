@@ -18,6 +18,7 @@ public class B2750_heap {
 		int parentNode = (arrLength-1)-1/2;
 		
 		//최대힙 만들기
+		//트리의 밑에서부터 정렬 들어간다.
 		for(int i = parentNode ; i >= 0; i--) {
 			//▲ 틀린 부분  : heapify(arr,parentNode,arrLength-1);			
 			heapify(arr,i,arrLength-1);			
@@ -31,6 +32,9 @@ public class B2750_heap {
 		
 	}
 	
+	/**
+	 * 값 바꾸는 메소드
+	 */
 	public static void swap(int[] arr,int a, int b) {
 		int temp = arr[a];
 		arr[a] = arr[b];
@@ -38,7 +42,7 @@ public class B2750_heap {
 	}
 	
 	/**
-	 * 최대힙 만드는 메소드
+	 * 최대힙 만드는 메소드 (기존 배열, 루트 노드, 배열의 마지막 인덱스)
 	 */
 	public static void heapify(int[] arr, int parentNode, int lastIdx) {
 		
@@ -46,6 +50,10 @@ public class B2750_heap {
 		int rightChildIdx = parentNode * 2 + 2;
 		int largestIdx = parentNode;
 		
+		/* 최대인덱스를 벗어나면 안된다는 조건 & 
+		 자식 인덱스의 값이 더 크면 값을 바꾼 후, (그럼 자식 인덱스에 그 작은 값이 들어가겠지?)
+		 그러면 작은 값을 갖게 된 <<그 자식 인덱스>>를 기준으로 또다시 정렬 들어가야 되니까
+		 largestIdx라는 변수에다가 자식 인덱스를 넣어주기 */
 		if(leftChildIdx <= lastIdx && arr[leftChildIdx] > arr[largestIdx]) {
 			largestIdx = leftChildIdx;
 		}
@@ -53,7 +61,9 @@ public class B2750_heap {
 			largestIdx = rightChildIdx;
 		}
 		
-		//★ if문 넣어주기!
+		//★★ if문 넣어주기! ★★ //
+		/*  <<자식인덱스의 값이 더 큰 경우에만!!>>
+			(1) 값을 바꾸고, (2) 자식인덱스를 기준으로 정렬들어가야 됨 */
 		if(largestIdx != parentNode) {
 			swap(arr,largestIdx,parentNode);
 			heapify(arr,largestIdx,lastIdx);
