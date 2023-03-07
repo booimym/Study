@@ -51,8 +51,13 @@ public class B2108 {
 			
 		}
 		
+		int count = 0; // (3) 최빈값
 		
-		
+		for(int i = 0 ; i < counting.length ; i++) {
+			
+			
+			
+		}
 		
 	}
 
