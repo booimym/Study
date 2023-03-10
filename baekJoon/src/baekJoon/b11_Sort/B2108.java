@@ -1,10 +1,14 @@
 package baekJoon.b11_Sort;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class B2108 {
@@ -12,7 +16,7 @@ public class B2108 {
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		/*
 		 * 
 		 * [ 최빈값 구하기 ]
@@ -21,8 +25,9 @@ public class B2108 {
 		 * */
 		
 		int average = 0; 	// (1) 산술평균
-		int medium = 0;		// (2) 중앙값
-		
+		int median = 0;		// (2) 중앙값
+		int max = -4001;
+		int min = 40001;
 		// 정렬되기 전 배열 만들기
 		// (1) 배열 길이
 		int arrLength = Integer.parseInt(br.readLine());
@@ -34,7 +39,13 @@ public class B2108 {
 			average += arr[i];
 			//불필요...왜냐면 5/2하면 되니까...
 			if(i == arr.length/2) {
-				medium = arr[i];		// (2) 중앙값
+				median = arr[i];		// (2) 중앙값
+			}
+			if(arr[i]>max) {
+				max = arr[i];
+			}
+			if(arr[i]<min) {
+				min = arr[i];
 			}
 		}
 		
@@ -51,13 +62,32 @@ public class B2108 {
 			
 		}
 		
-		int count = 0; // (3) 최빈값
-		
+		int modeMax = 0; // (3) 최빈값
+		boolean flag = false;
+		int mode = -4001;
 		for(int i = 0 ; i < counting.length ; i++) {
 			
+			if(counting[i] > 0) {
+				
+				
+				
+				
+				if (counting[i] > modeMax ) {
+					modeMax = counting[i];
+					flag = true;
+					mode = i - 4000;
+				} else if(counting[i] == modeMax && flag == true) {
+					mode = i - 4000;
+					flag = false;
+				}
+				
+			}
 			
 			
 		}
+		
+		bw.write(average + "\n"+median+"\n"+mode+"\n"+(max-min));
+		bw.close();
 		
 	}
 

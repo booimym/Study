@@ -50,6 +50,9 @@ public class B11651 {
 				copyArr[index][1] = arr[right][1];
 				index++;
 				right++;
+				
+				//copyArr[index++] = arr[right++]; 와 같다.....
+				
 			} else if (arr[left][1] < arr[right][1]) {
 				copyArr[index][0] = arr[left][0];
 				copyArr[index][1] = arr[left][1];

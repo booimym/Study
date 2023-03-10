@@ -112,7 +112,7 @@ public class B1181_2 {
 			//System.out.println(Arrays.toString(copyArr));
 		}
 		
-		//arr에 정렬된만큼 넣어줘야 기존배열 + 기존배열 합병할 때 순서대로 정렬 가능
+		//arr에 정렬된만큼 넣어줘야 기존배열 + 기존배열 합병할 때 순서대로 정렬 가능   
 		for(int i = start; i <= end ; i++) {
 			arr[i] = copyArr[i];
 		}
@@ -144,8 +144,8 @@ public class B1181_2 {
 		
 //		int[] intArr = new int[stringArr.length];
 //		for(int i = 0 ; i < intArr.length; i++) {
-//			intArr[i] = stringArr[i].length();
-//		}
+//			intArr[i] = stringArr[i].length();   
+//		}                                         
 		System.out.println(Arrays.toString(stringArr));
 		//System.out.println(Arrays.toString(intArr));
 		
