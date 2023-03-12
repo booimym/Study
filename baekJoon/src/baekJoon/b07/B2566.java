@@ -13,8 +13,6 @@ public class B2566 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-
-		
 		int[][] arr = new int[9][9];
 		//▲ 틀린 이유 : max를 0이라고 설정해두면, 만약에 모든 숫자가 0일 때, if문에 해당이 되지 않아서
 		//maxRow&maxCol이 0,0이 되어버림...
