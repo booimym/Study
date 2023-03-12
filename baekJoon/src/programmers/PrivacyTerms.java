@@ -1,7 +1,11 @@
 package programmers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 개인정보 수집 유효기간
@@ -9,66 +13,56 @@ import java.util.Date;
  */
 public class PrivacyTerms {
 	public static int[] solution(String today, String[] terms, String[] privacies) {
-        int[] answer = {};
-        
-        String[][] terms1 = new String[terms.length][2];
-        for(int i = 0; i <terms.length ; i++ ) {
-        	terms1[i] = terms[i].split(" "); 
-        }
-        
-        String[][] privacies1 = new String[privacies.length][2];
-        for(int i = 0; i <privacies.length ; i++ ) {
-    	   privacies1[i] = privacies[i].split(" "); 
-       	}
-       
-        for(int i = 0; i <privacies.length ; i++ ) {
-        	
-        	for(int j = 0; j <terms.length ; j++ ) {
-        		//ex) A == A라면,
-	     	   if(privacies1[i][1].equals(terms1[j][0])) {
-	     		  System.out.println(i+"번째");
-	     		  System.out.println(privacies1[i][1]);
-	     		  System.out.println(terms1[j][0]);
-	     		  int month = Integer.parseInt(privacies1[i][0].substring(5, 7));
-	     		  int year = Integer.parseInt(privacies1[i][0].substring(0, 4));
-	     		  String day = privacies1[i][0].substring(8,10);
-	     		  
-	     		  if(month + Integer.parseInt(terms1[j][1]) > 12) {
-	     			  year ++;
-	     			  month = month-12;
-	     		  } else {
-	     			  month = month + Integer.parseInt(terms1[j][1]);
-	     		  }
-	     		  if(month<10) {
-	     			  //String
-	     		  }
-	     		 privacies1[i][0] = String.valueOf(year)+"."+String.valueOf(month)+"."+day;
-	     		  break;
-	     		  //Integer.parseInt(privacies1[i][0]) + Integer.parseInt(terms1[j][1])) ;
-	     	   }
-        	}
-        }
-        
-        System.out.println(Arrays.toString(privacies1[0]));
-        System.out.println(Arrays.toString(privacies1[1]));
-        System.out.println(Arrays.toString(privacies1[2]));
-        
-        return answer;
+		
+	    
+		Map<String, Integer> map = new HashMap<>();
+		for(String term : terms) {
+		   //month니까 28을 곱해준다
+		   map.put(term.split(" ")[0],Integer.parseInt(term.split(" ")[1])*28);
+		}
+		int todayYear = Integer.parseInt(today.split("\\.")[0]);
+		int todayMonth = Integer.parseInt(today.split("\\.")[1]);
+		int todayDate = Integer.parseInt(today.split("\\.")[2]);
+		int todayNumber = todayYear*28*12 + todayMonth*28 + todayDate ;
+	   
+		List<Integer> expireList = new ArrayList<>();
+		
+	   
+		for(int i = 0; i < privacies.length; i++) {
+		   
+		   int year = Integer.parseInt(privacies[i].split(" |\\.")[0]);
+		   int month =  Integer.parseInt(privacies[i].split(" |\\.")[1]);
+		   int day =  Integer.parseInt(privacies[i].split(" |\\.")[2]);
+		   
+		   int total = year*28*12 + month*28 + day + map.get(privacies[i].split(" |\\.")[3]);
+		   
+		   
+		   if(todayNumber >= total) {
+			   //파기해야 할 리스트
+			   expireList.add(i+1);
+		   }
+		   
+		   
+		}
+		
+		//list를 배열로 바꾸기
+		//int[] answer = expireList.toArray(new int[0]);
+		
+		int[] answer = new int[expireList.size()];
+		    for (int i = 0 ; i < expireList.size() ; i++) { 
+		    	answer[i] = expireList.get(i).intValue();
+		    }
+		return answer;
     }
 
 	public static void main(String[] args) {
 		
-		String today = "2022.05.19";
-		String[] terms = {"A 6", "B 12", "C 3"};
-		String[] privacies = {"2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"};
+		String today = "2020.01.01";
+		String[] terms = {"Z 3", "D 5"};
+		String[] privacies = {"2019.01.01 D", "2019.11.15 Z", "2019.08.02 D", "2019.07.01 D", "2018.12.28 Z"};
 		
-		//----------------------------------------------------------------------
-		//substring이해하려고..예시...
-		String example = "2021.05.02";
-		System.out.println("1");
-		System.out.println(example.substring(0, 4)); //substring : a부터 b전까지의 위치의 문자열을 가져온다.
-		System.out.println(example.substring(5, 7)); //substring : a부터 b전까지의 위치의 문자열을 가져온다.
-		System.out.println(example.substring(8, 10)); //substring : a부터 b전까지의 위치의 문자열을 가져온다.
+		
+		
 		solution(today,terms,privacies);
 	}
 
