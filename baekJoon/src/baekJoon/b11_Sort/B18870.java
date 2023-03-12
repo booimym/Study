@@ -53,7 +53,7 @@ public class B18870 {
 			}
 			
 		}
-		
+		//한 쪽만 먼저 다 찼을 경우... 나머지 넣어주기...
 		if(left > mid ) {
 			while(right <= end) {
 				copyArr[index++] = arr[right++];
@@ -65,7 +65,7 @@ public class B18870 {
 				copyArr[index++] = arr[left++];
 			}
 		}
-		
+		//정렬된 copyArr를 arr에 다시 넣어주기
 		for(int i = start ; i <= end ; i++) {
 			arr[i] = copyArr[i];
 		}
@@ -111,7 +111,6 @@ public class B18870 {
 		int index = 0;
 		for(int i = 0; i < length ; i++) {
 			
-			
 			if(i == 0) {
 				map.put(sortedArr[i], index++ );
 			} else {
@@ -127,13 +126,6 @@ public class B18870 {
 //		for (Map.Entry<Integer, Integer> pair : map.entrySet()) {
 //			  System.out.println(String.format("Key (name) is: %s, Value (age) is : %s", pair.getKey(), pair.getValue()));
 //			}
-		
-		
-		
-		
-		
-		
-		
 		
 		//-----------------------------------------------------------------------------------
 		//출력
