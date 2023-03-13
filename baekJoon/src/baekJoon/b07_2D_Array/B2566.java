@@ -1,4 +1,4 @@
-package baekJoon.b07;
+package baekJoon.b07_2D_Array;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
