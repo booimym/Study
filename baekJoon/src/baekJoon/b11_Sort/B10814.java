@@ -22,7 +22,7 @@ public class B10814 {
 			String temp_1 = arr[i][0];
 			String temp_2 = arr[i][1];
 			int now = Integer.parseInt(arr[i][0]);
-			int index = i-1;
+			int index = i-1;g
 			
 			// index가 0이상이어야하는데 그건 안 써도 돼?
 			
