@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * 좌표 정렬하기 (힙정렬로 품)
  *
  */
-public class B11650 {
+public class B08_11650 {
 	
 	public static void sort(int[][] arr) {
 	

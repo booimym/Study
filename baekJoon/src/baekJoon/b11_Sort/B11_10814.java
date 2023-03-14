@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class B10814 {
+public class B11_10814 {
 
 	/* 안정 정렬 방법을 쓰면 될 듯??? 
 	 *  안정 정렬 = 삽입, 병합, 버블
@@ -21,8 +21,7 @@ public class B10814 {
 			//String[] temp = arr[i];
 			String temp_1 = arr[i][0];
 			String temp_2 = arr[i][1];
-			int now = Integer.parseInt(arr[i][0]);
-			int index = i-1;g
+			int index = i-1;
 			
 			// index가 0이상이어야하는데 그건 안 써도 돼?
 			
@@ -51,8 +50,39 @@ public class B10814 {
 		
 	}
 	
-	public static void main(String[] args) throws IOException {
+	//주소값으로 정렬시키는 경우
+	public static void insertSort_2(String[][] arr) {
+		
+		for(int i = 1 ; i < arr.length ; i++) {
+			String[] temp = arr[i];
+			
+			int index = i-1;
+			System.out.println("-----------------------------------------------------");
+			
+			//▲ &&의 앞과 뒤를 바꾸니 해결! 컴퓨터는 멍충했다!
+			//while(Integer.parseInt(arr[index][0]) > now && index >= 0) {
+			while((index >= 0) && (Integer.parseInt(arr[index][0]) > Integer.parseInt(temp[0]) )) {
+				System.out.println();
+				System.out.println("앞원소 ["+index+"]번째 원소와 비교중임.");
+				System.out.println("앞원소의 크기가 더 크구나! 뒤로 보내야겠다.");
+				System.out.println("앞원소가 계속 뒤로가는데, temp의 값도 변하는지 궁금해.....");
+				System.out.println("이때, temp는 " + temp);
+				System.out.println("이때, temp[0]는 " + temp[0]);
+				arr[index+1] = arr[index];
 
+				index--;
+			}
+			// while문을 나온 후에, 값 집어넣기
+			arr[index+1] = temp;
+			
+			System.out.println("-----------------------------------------------------");
+			
+		}
+		
+	}
+	
+	public static void main(String[] args) throws IOException {
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
@@ -79,7 +109,8 @@ public class B10814 {
 
 		
 		//삽입으로 풀어보자!
-		insertSort(arr);
+		//insertSort(arr);
+		insertSort_2(arr);
 		
 		for(int i = 0; i < length ; i++) {
 			bw.write(arr[i][0]+" "+arr[i][1]+"\n");

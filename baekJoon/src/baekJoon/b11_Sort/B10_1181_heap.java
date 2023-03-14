@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class B1181_heap {
+public class B10_1181_heap {
 
 	// 중복 제거된 배열 선언
 	static String arr[];

@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  * 좌표 정렬하기 2 (병합 정렬 & 퀵 정렬로 풀어보자!)
  *
  */
-public class B11651 {
+public class B09_11651 {
 	
 	static int[][] copyArr;
 	

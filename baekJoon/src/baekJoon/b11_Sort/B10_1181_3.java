@@ -14,7 +14,7 @@ import java.util.Set;
  * 단어 정렬 문제 (최종 답안)
  *
  */
-public class B1181_3 {
+public class B10_1181_3 {
 
 	static String[] stringArr;
 	static String[] copyArr;

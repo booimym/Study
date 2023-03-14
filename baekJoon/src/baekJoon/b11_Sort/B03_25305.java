@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class B25305 {
+public class B03_25305 {
 
 	public static void main(String[] args) throws IOException {
 		

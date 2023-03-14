@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
-public class B1427 {
+public class B07_1427 {
 	
 	static int[] copyArr;
 	
@@ -77,6 +77,7 @@ public class B1427 {
 		
 		
 	}
+	
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class B2750_heap {
+public class B01_2750_heap {
 	
 	
 	public static void sort(int[] arr, int arrLength) {

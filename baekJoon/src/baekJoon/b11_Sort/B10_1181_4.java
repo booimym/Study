@@ -14,7 +14,7 @@ import java.util.Set;
  * 단어 정렬 문제 (최종 답안) + 김효동이 쓴 compareTo메소드를 이용해보자!
  *
  */
-public class B1181_4 {
+public class B10_1181_4 {
 
 	static String[] stringArr;
 	static String[] copyArr;

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class B18870 {
+public class B12_18870 {
 	
 	//병합정렬에 이용할 배열
 	static int[] copyArr;

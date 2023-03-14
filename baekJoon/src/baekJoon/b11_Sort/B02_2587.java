@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 	- 범위 : N개의 수들 중 최댓값과 최솟값의 차이
  *
  */
-public class B2587 {
+public class B02_2587 {
 
 	public static void main(String[] args) throws IOException {
 		

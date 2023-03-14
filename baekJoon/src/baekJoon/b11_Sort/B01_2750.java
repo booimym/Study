@@ -7,7 +7,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 
-public class B2750 {
+public class B01_2750 {
 	
 	static int[] myFirstSelectSort(int[] arr) {
 		

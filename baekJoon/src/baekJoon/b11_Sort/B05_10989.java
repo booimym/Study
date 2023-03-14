@@ -11,7 +11,7 @@ import java.util.Arrays;
  * [분류] 정렬
  * 수 정렬하기 3
  */
-public class B10989 {
+public class B05_10989 {
     public static void main(String[] args) throws IOException {
     	
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

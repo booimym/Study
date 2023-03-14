@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class B2108 {
+public class B06_2108 {
 
 	public static void main(String[] args) throws IOException {
 		
