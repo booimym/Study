@@ -49,7 +49,7 @@ public class num0101 {
 		bw.close();
 	}
 	
-	public static void num08() throws IOException {
+	public static void num08_1() throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -63,7 +63,6 @@ public class num0101 {
 
 		
 		//--------------------------------------------------------------------------------------------------------
-		
 		for(int i = 0; i < mid ; i++) {
 			//System.out.println("i는"+ i);
 			char one = arr[i].charAt(0);
@@ -77,7 +76,6 @@ public class num0101 {
 				System.out.println("-------------같다면-------------");
 				flag = true;
 				System.out.println("flag는?"+flag);
-				
 			}else {
 				System.out.println("------------다르다면-------------");
 				if((one >= 65 && one<= 90 || one >=97 && one <= 122)||(two >= 65 && two<= 90 || two >=97 && two <= 122)) {
@@ -90,13 +88,20 @@ public class num0101 {
 					flag = true;
 					System.out.println("flag는?"+flag);
 				}
-				
-				
-				
 			}
-			
 		}
+		//--------------------------------------------------------------------------------------------------------
+		
+		
+		
+		
+		
+		
+		
+		//--------------------------------------------------------------------------------------------------------
+		
 		//System.out.println("for문 나온 flag는?"+flag);
+		
 		if(flag) {
 			bw.write("YES");
 		} else {
@@ -107,12 +112,53 @@ public class num0101 {
 	
 	}
 
+	public static void num08_2() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		String input = br.readLine();
+		String match = "[^a-zA-Z]"; //알파벳 빼고 전부
+		
+		//(1)알파벳만 빼고 다 제거하기
+		// str.replaceAll("[{바꾸고싶은 문자의 정규식}]", "{치환할 문자}"); 를 이용하자! 
+		input = input.replaceAll(match, "");
+		input = input.toLowerCase();
+		System.out.println(input);
+		
+		int mid = input.length() /2;
+		boolean flag = true;
+		
+		//--------------------------------------------------------------------------------------------------------
+		for(int i = 0; i < mid ; i++) {
+			if(input.charAt(i)==input.charAt(input.length()-1-i)) {
+				//System.out.println(i+"번째" + input.charAt(i));
+				//System.out.println((input.length()-1-i)+"번째" + input.charAt(input.length()-1-i));
+				flag = true;
+				//System.out.println("flag"+flag);
+			} else {
+				//System.out.println(i+"번째" + input.charAt(i));
+				//System.out.println((input.length()-1-i)+"번째" + input.charAt(input.length()-1-i));
+				flag = false;
+				//System.out.println("flag"+flag);
+				break;
+			}
+		}
+		//--------------------------------------------------------------------------------------------------------
+		if(flag) {
+			bw.write("YES");
+		} else {
+			bw.write("NO");
+		}
+		
+		bw.close();
 	
+	}
 	public static void main(String[] args) throws IOException {
 		
 		//num01();
 		//num02();
-		num08();
+		//num08_1();
+		num08_2();
 	}
 
 }
