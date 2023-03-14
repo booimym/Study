@@ -18,20 +18,25 @@ public class B10814 {
 	public static void insertSort(String[][] arr) {
 		
 		for(int i = 1 ; i < arr.length ; i++) {
-			String[] a = arr[i];
+			String[] temp = arr[i];
 			int now = Integer.parseInt(arr[i][0]);
 			int index = i-1;
 			
 			// index가 0이상이어야하는데 그건 안 써도 돼?
 			
 			//while(Integer.parseInt(arr[index][0]) > now && index >= 0) {
-			while((index >= 0) && (Integer.parseInt(arr[index][0]) > Integer.parseInt(a[0]))) {
-				arr[index+1][0] = arr[index][0];
-				arr[index+1][1] = arr[index][1];
+			while((index >= 0) && (Integer.parseInt(arr[index][0]) > Integer.parseInt(temp[0]) )) {
+				//------------------------------
+				//arr[index+1][0] = arr[index][0];
+				//arr[index+1][1] = arr[index][1];
+				//------------------------------
+				
+				//arr[index+1] = arr[index];
+
 				index--;
 			}
 			// while문을 나온 후에, 값 집어넣기
-			arr[index+1] = a;
+			arr[index+1] = temp;
 			
 			
 		}
@@ -52,7 +57,9 @@ public class B10814 {
 			
 			//이러면 바로 0과 1로 나눠지나?
 			arr[i] = br.readLine().split(" ");
-			
+//			String[] a = br.readLine().split(" ");
+//			arr[i][0] = a[0];
+//			arr[i][1] = a[1];
 		}
 		
 		//삽입으로 풀어보자!
