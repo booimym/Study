@@ -11,40 +11,39 @@ public class newPractice {
 static int[] myFirstQuickSort(int[] arr , int start, int end) {
 		
 		int pivot = start;
-		System.out.println("태초의 arr[pivot]값은"+arr[pivot]);
+		//System.out.println("태초의 arr[pivot]값은"+arr[pivot]);
 		int left = start + 1;
 		int right = end;
 		
-		//분할 후 원소가 하나일 경우는 정렬하지 않는다.
-		if(start>=end) {
-			return arr;
-		};
+		//분할 후 원소가 하나일 경우는 정렬하지 않는다. (처리안해주면 에러남)
+//		if(start>=end) {
+//			return arr;
+//		};
 		while(left <= right) {
 
 			
 			while(left <= end && arr[pivot] > arr[left]) {
 				left++;
-				System.out.println("left++되어서 left는 " + left);
+				//System.out.println("left++되어서 left는 " + left);
 			}
 			while(right > start && arr[right] > arr[pivot]) {
-				System.out.println("arr[right]"+arr[right]);
-				System.out.println("arr[pivot]"+arr[pivot]);
+				//System.out.println("arr[right]"+arr[right]);
+				//System.out.println("arr[pivot]"+arr[pivot]);
 				right--;
-				System.out.println("right--되어서 right은 " + right);
+				//System.out.println("right--되어서 right은 " + right);
 			}
 			
 			if((left <= right && arr[pivot] < arr[left] && arr[right] < arr[pivot])) {
 				int temp = arr[left];
 				arr[left] = arr[right];
 				arr[right] = temp;
-				System.out.println("----둘다 멈춤----");
-				System.out.println("기존 left인덱스 "+left+"와 right인덱스 "+right);
+				//System.out.println("----둘다 멈춤----");
+				//System.out.println("기존 left인덱스 "+left+"와 right인덱스 "+right);
 				left++;
 				right--;
-				System.out.println("바뀐 left인덱스 "+left+"와 right인덱스 "+right);
-				System.out.println("-------------------");
+				//System.out.println("바뀐 left인덱스 "+left+"와 right인덱스 "+right);
+				//System.out.println("-------------------");
 			}
-			
 			
 		}
 		//switch
