@@ -160,6 +160,7 @@ public class B01_2750 {
 			//              반복 끝내고 arr[pivot]과 arr[right]을 switch 해야되기 때문임.
 			System.out.println("---드디어 둘 다 멈추었다.----");
 			if((left <= right && arr[pivot] < arr[left] && arr[right] < arr[pivot])) {
+			//if(left <= right ) {
 				System.out.println("---조건이 만족하기 때문에, switch를 할 것임---");
 				System.out.println("현재 left인 인덱스["+left+"]의 값은"+arr[left]+"입니다.");
 				System.out.println("현재 right인 인덱스["+right+"]의 값은"+arr[right]+"입니다.");
@@ -190,7 +191,7 @@ public class B01_2750 {
 		//switch
 		int temp = arr[pivot];
 		//■ point3  : pivot에다가 자꾸 입력하니까 안 되지...
-		arr[start] = arr[right];
+		arr[pivot] = arr[right];
 		arr[right] = temp;
 		System.out.println("arr[right] :" + arr[right]);
 		System.out.println("arr[pivot] :" + arr[pivot]);
