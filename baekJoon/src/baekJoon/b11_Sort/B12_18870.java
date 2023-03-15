@@ -70,9 +70,15 @@ public class B12_18870 {
 			arr[i] = copyArr[i];
 		}
 		
-		
 	}
 	
+	//----------------------------------------------------
+	public static void quickSort(int[] arr, int start, int end) {
+		
+		
+		
+	}
+
 	/*
 	 *  퀵으로 풀어봐야징
 	 * 
@@ -102,18 +108,26 @@ public class B12_18870 {
 		// 퀵 정렬 ㅠㅠ 까먹었어... 일단 다른 정렬로 풀어보겠어
 		// 힙!! 병합!!
 		
-		//병합정렬로 풀기
+		//------------------------------------------------------------------------------------
+		//(1) 병합정렬로 풀기
 		copyArr = new int[length];
+		//divide(sortedArr, 0 , length-1);
+		//------------------------------------------------------------------------------------
+		//(2) 퀵정렬로 풀기
 		
-		divide(sortedArr, 0 , length-1);
+		//------------------------------------------------------------------------------------
 		
+		
+		//(정렬한 배열, 원소보다 작은 서로 다른 값의 개수)를 map에다가 차곡차곡 담는다.
 		Map<Integer, Integer> map = new HashMap<>();
 		int index = 0;
 		for(int i = 0; i < length ; i++) {
 			
 			if(i == 0) {
+				// 제일 작은 값이기 때문에, 무조건 담는다.
 				map.put(sortedArr[i], index++ );
 			} else {
+				// 만약 앞의 원소와 숫자가 같다면 담지 않는다. (당연히 원소보다 작은 값의 개수도 올라가지 않는다)
 				if(sortedArr[i-1] == sortedArr[i]) {
 				} else {
 					map.put(sortedArr[i], index++ );
@@ -131,6 +145,8 @@ public class B12_18870 {
 		//출력
 		for(int i = 0; i < length ; i++) {
 			//System.out.println("newArr[i]"+newArr[i]);
+			
+			//newArr의 순서에 따라, 서로 다른 작은 값의 개수를 출력한다.
 			bw.write(map.get(newArr[i])+" ");
 		}
 		bw.close();

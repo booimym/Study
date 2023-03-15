@@ -23,7 +23,7 @@ public class B11_10814 {
 			String temp_2 = arr[i][1];
 			int index = i-1;
 			
-			// index가 0이상이어야하는데 그건 안 써도 돼?
+			// index가 0이상이어야하는데 그건 안 써도 돼? -> 써야 됨...
 			
 			
 			//▲ &&의 앞과 뒤를 바꾸니 해결! 컴퓨터는 멍충했다!
@@ -98,15 +98,7 @@ public class B11_10814 {
 			
 
 		}
-		
-		
-		System.out.println("배열에 정상적으로 들어갔는지 확인중");
-		for(int i = 0; i < length ; i++) {
-			
-			System.out.println(arr[i][0]+" "+arr[i][1]);
-		}
-		System.out.println("배열에 정상적으로 들어갔는지 확인중");
-
+	
 		
 		//삽입으로 풀어보자!
 		//insertSort(arr);
