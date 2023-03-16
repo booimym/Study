@@ -14,7 +14,7 @@ public class B11_10814 {
 	 *  안정 정렬 = 삽입, 병합, 버블
 	 *  불안정 정렬 = 퀵, 선택
 	 * */
-	
+	//값으로 정렬시키는 경우
 	public static void insertSort(String[][] arr) {
 		
 		for(int i = 1 ; i < arr.length ; i++) {
@@ -81,6 +81,8 @@ public class B11_10814 {
 		
 	}
 	
+	
+	
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -95,10 +97,8 @@ public class B11_10814 {
 			
 			//이러면 바로 0과 1로 나눠지나?
 			arr[i] = br.readLine().split(" ");
-			
 
 		}
-	
 		
 		//삽입으로 풀어보자!
 		//insertSort(arr);
