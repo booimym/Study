@@ -81,7 +81,55 @@ public class B11_10814 {
 		
 	}
 	
+	static String[][] copyArr;
 	
+	//합병정렬
+	public static void divide(String[][] arr, int start, int end) {
+		
+		if(start>=end) {
+			return;
+		}
+		
+		int mid = (start + end) / 2;
+		
+		divide(arr, start, mid);
+		divide(arr, mid+1, end);
+		merge(arr, start, mid, end);
+		
+	}
+	
+	public static void merge(String[][] arr, int start, int mid, int end) {
+		
+		int left = start;
+		int right = mid+1;
+		int index = start;
+		
+		while(left <= mid && right <= end) {
+			
+			if(Integer.parseInt(arr[left][0]) <= Integer.parseInt(arr[right][0]) ) {
+				copyArr[index++] = arr[left++];
+			} else {
+				copyArr[index++] = arr[right++];
+			}
+			
+		}
+		
+		if(left > mid) {
+			while(right <= end) {
+				copyArr[index++] = arr[right++];
+			}
+		}
+		
+		if(right > end) {
+			while(left <= mid) {
+				copyArr[index++] = arr[left++];
+			}
+		}
+		
+		for(int i = start ; i <= end; i++) {
+			arr[i] = copyArr[i];
+		}
+	}
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -102,7 +150,11 @@ public class B11_10814 {
 		
 		//삽입으로 풀어보자!
 		//insertSort(arr);
-		insertSort_2(arr);
+		//insertSort_2(arr);
+		
+		
+		copyArr = new String[length][2];
+		divide(arr, 0, length-1);
 		
 		for(int i = 0; i < length ; i++) {
 			bw.write(arr[i][0]+" "+arr[i][1]+"\n");
