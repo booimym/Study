@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class B01_10815_2 {
@@ -15,42 +17,36 @@ public class B01_10815_2 {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-		//1. 상근이의 카드의 개수
-		int sangNum = Integer.parseInt(br.readLine());
-		
-		//2. 상근이의 카드를 배열에 담는다.
-		int[] arr = new int[sangNum];
-		
-		StringTokenizer st1 = new StringTokenizer(br.readLine());
-		for(int i = 0; i < sangNum; i++) {
-			arr[i] = Integer.parseInt(st1.nextToken());
-		}
-		
-		//3. 특정한 숫자카드를 입력받음과 동시에 상근이의 카드와의 일치여부를 비교하는 for문을 작성해보기!
-		Map<Integer, Integer> map = new HashMap<>();
-		
-		//3-1. 총 카드의 개수
-		int randomCard = Integer.parseInt(br.readLine());
-		//int[] arr2 =   new int[randomCard];
-		
-		//3-2. 입력을 받는다.  
-		StringTokenizer st2 = new StringTokenizer(br.readLine());
-		boolean flag = false;
-		for(int i = 0; i < randomCard; i++) {
-			
-			//만약 입력을 받은 수가, arr배열의 수 중 하나와 일치한다면, map에다가 담는다.
-			//배열에도...담아야하나...???????????????????
-			int a = Integer.parseInt(st2.nextToken());
-			//arr2[i] = a;
-			
-			
-		}
-		
-		for(int i = 0; i < randomCard; i++) {
-			//bw.write(map.get(arr2[i])+" ");
-		}
-		bw.close();
-	}
 
+        int inputN = Integer.parseInt(br.readLine());
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        
+        for (int i = 0; i < inputN; i++) {
+            int key = Integer.parseInt(st.nextToken());
+            //입력받은 값을 map에 넣는다.
+            map.put(key, 1);
+        }
+
+        int inputM = Integer.parseInt(br.readLine());
+
+        StringTokenizer st1 = new StringTokenizer(br.readLine(), " ");
+        int[] arr = new int[inputM];
+        
+        for (int i = 0; i < inputM; i++) {
+           arr[i] = Integer.parseInt(st1.nextToken());
+        }
+        
+        for (int i = 0; i < inputM; i++) {
+        	// getOrDefault메소드를 이용해서 arr[i]이 map에 있는 key에 해당한다면 그 key에 해당하는 value를,
+        	// map에 있는 key에 해당되지 않는다면 default값인 0을 꺼내오도록 한다. 그리고 bw.write를 이용해서 이를 출력함.
+            bw.write(map.getOrDefault(arr[i], 0) + " ");
+        }
+
+        bw.close();
+	}
 }
+
+
