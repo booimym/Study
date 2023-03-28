@@ -1,4 +1,4 @@
-package baekJoon.b14_map;
+package baekJoon.b14_Set_Map;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package baekJoon.b14_map;
+package baekJoon.b14_Set_Map;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,6 +11,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+/**
+ * 상근이의 카드를 map에 넣고 그 나머지의 경우 getOrDefault를 이용해 1과 0으로 출력되게 하는 방법
+ *
+ */
 public class B01_10815_2 {
 
 	public static void main(String[] args) throws IOException {

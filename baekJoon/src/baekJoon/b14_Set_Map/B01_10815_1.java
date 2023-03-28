@@ -1,4 +1,4 @@
-package baekJoon.b14_map;
+package baekJoon.b14_Set_Map;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class B01_10815 {
+/**
+ * for문 2번 돌려서 탐색하는 방법 (시간 초과)
+ *
+ */
+public class B01_10815_1 {
 
 	public static void main(String[] args) throws IOException {
 
