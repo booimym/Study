@@ -78,7 +78,8 @@ public class B01_10815_4 {
 		
 	}
 	
-	//----------------------------------------------------
+	//------------------------------------------------------------------------
+	
 	
 	public static void main(String[] args) throws IOException {
 
@@ -97,7 +98,7 @@ public class B01_10815_4 {
 		}
 		
 		//이진탐색을 이용하기 위해 arr를 정렬한다.
-		
+		//[병합정렬] 이용. 
 		copyArr = new int[sangNum];
 		divide(arr,0,sangNum-1);
 		
@@ -122,9 +123,13 @@ public class B01_10815_4 {
 		}
 		bw.close();
 		
-		
 	}
 	
+	//------------------------------------------------------------------------
+	
+	/**
+	 * 이진탐색 메서드
+	 */
 	public static int binarySearch(int[] arr, int low, int high, int key) {
 		//System.out.println(low);
 		//System.out.println(high);
